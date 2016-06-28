@@ -45,7 +45,7 @@ module.exports = {
      * ListController.create()
      */
     create: function(req, res) {
-        var List = new ListModel({			name : req.body.name
+        var List = new ListModel({			name : req.body.name,			items : req.body.items
         });
 
         List.save(function(err, List){
@@ -80,7 +80,7 @@ module.exports = {
                 });
             }
 
-            List.name =  req.body.name ? req.body.name : List.name;			
+            List.name =  req.body.name ? req.body.name : List.name;			List.items =  req.body.items ? req.body.items : List.items;			
             List.save(function(err, List){
                 if(err) {
                     return res.json(500, {

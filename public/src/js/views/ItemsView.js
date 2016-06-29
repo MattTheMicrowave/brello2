@@ -5,13 +5,6 @@ var ItemView = require('./ItemView');
 var ItemsView = Backbone.View.extend({
   el: '<ul></ul>',
 
-  template: _.template([
-    '<li>',
-    '<span><%= item.label </span>',
-    '<span><%= tags %></span>',
-    '</li>'
-  ].join(''))
-
   initialize: function() {
     this.listenTo(this.collection, 'sync', this.render);
   },

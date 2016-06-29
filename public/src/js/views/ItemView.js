@@ -1,8 +1,10 @@
 var Backbone = require('backbone');
 var _ = require('underscore');
 
+
 var ItemView = Backbone.View.extend({
   el: '<li></li>',
+
   template: _.template([
     '<span><%= name %> </span>',
     '<div> <%= tags %> </div>'

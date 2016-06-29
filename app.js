@@ -10,6 +10,8 @@ var users = require('./routes/users');
 var lists = require('./routes/Lists');
 var items = require('./routes/Items');
 var tags = require('./routes/Tags');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/brello2');
 var app = express();
 
 // view engine setup

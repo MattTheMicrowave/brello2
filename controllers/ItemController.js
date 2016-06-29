@@ -11,7 +11,7 @@ module.exports = {
      * ItemController.list()
      */
     list: function(req, res) {
-        ItemModel.find(function(err, Items){
+        ItemModel.find().populate('tags').exec(function(err, Items){
             if(err) {
                 return res.json(500, {
                     message: 'Error getting Item.'
@@ -26,7 +26,7 @@ module.exports = {
      */
     show: function(req, res) {
         var id = req.params.id;
-        ItemModel.findOne({_id: id}, function(err, Item){
+        ItemModel.findOne({_id: id}).populate('tags').exec(function(err, Item){
             if(err) {
                 return res.json(500, {
                     message: 'Error getting Item.'
@@ -80,7 +80,7 @@ module.exports = {
                 });
             }
 
-            Item.name =  req.body.name ? req.body.name : Item.name;			Item.tags =  req.body.tags ? req.body.tags : Item.tags;			
+            Item.name =  req.body.name ? req.body.name : Item.name;			Item.tags =  req.body.tags ? req.body.tags : Item.tags;
             Item.save(function(err, Item){
                 if(err) {
                     return res.json(500, {

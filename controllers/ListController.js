@@ -1,5 +1,5 @@
 var ListModel = require('../models/ListModel.js');
-
+var ItemModel = require('../models/ItemModel.js');
 /**
  * ListController.js
  *
@@ -11,13 +11,20 @@ module.exports = {
      * ListController.list()
      */
     list: function(req, res) {
-        ListModel.find(function(err, Lists){
+        ListModel.find(function(err, lists){
             if(err) {
                 return res.json(500, {
                     message: 'Error getting List.'
                 });
             }
-            return res.json(Lists);
+
+            lists.forEach(function(list) {
+                var id = list._id;
+                ItemModel.find({ list : id }).populate('tags').exec(function(err, items) {
+                    list.items = items;
+                });
+            });
+            return res.json(lists);
         });
     },
 
@@ -26,18 +33,21 @@ module.exports = {
      */
     show: function(req, res) {
         var id = req.params.id;
-        ListModel.findOne({_id: id}, function(err, List){
+        ListModel.findOne({_id: id}, function(err, list){
             if(err) {
                 return res.json(500, {
                     message: 'Error getting List.'
                 });
             }
-            if(!List) {
+            if(!list) {
                 return res.json(404, {
                     message: 'No such List'
                 });
             }
-            return res.json(List);
+            ItemModel.find({ list : id }).populate('tags').exec(function(err, items) {
+              list.items = items;
+              return res.json(list);
+            });
         });
     },
 
@@ -80,7 +90,7 @@ module.exports = {
                 });
             }
 
-            List.name =  req.body.name ? req.body.name : List.name;			List.items =  req.body.items ? req.body.items : List.items;			
+            List.name =  req.body.name ? req.body.name : List.name;			List.items =  req.body.items ? req.body.items : List.items;
             List.save(function(err, List){
                 if(err) {
                     return res.json(500, {

@@ -3,7 +3,7 @@ var TagModel = require('../models/TagModel')
 
 var TagsCollection = Backbone.Model.extend({
   urlRoot: '/tags',
-  idAttribute: '_id'
+  model: TagModel
 
 });
 

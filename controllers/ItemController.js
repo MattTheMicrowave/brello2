@@ -45,7 +45,8 @@ module.exports = {
      * ItemController.create()
      */
     create: function(req, res) {
-        var Item = new ItemModel({			name : req.body.name,			tags : req.body.tags
+        var Item = new ItemModel({			name : req.body.name,			tags : req.body.tags,
+      list : req.body.list
         });
 
         Item.save(function(err, Item){
@@ -80,7 +81,8 @@ module.exports = {
                 });
             }
 
-            Item.name =  req.body.name ? req.body.name : Item.name;			Item.tags =  req.body.tags ? req.body.tags : Item.tags;
+            Item.name =  req.body.name ? req.body.name : Item.name;			      Item.tags =  req.body.tags ? req.body.tags : Item.tags;
+            Item.list = req.body.list ? req.body.list : Item.tags;
             Item.save(function(err, Item){
                 if(err) {
                     return res.json(500, {

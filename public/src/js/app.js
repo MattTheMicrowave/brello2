@@ -1,10 +1,10 @@
 window.$ = window.jQuery = require('jquery');
-var ItemsView = require('./views/ItemsView');
-var ItemsCollection = require('./collections/ItemsCollection');
+var ListsView = require('./views/ListsView');
+var ListsCollection = require('./collections/ListsCollection');
 
-var itemsCollection = new ItemsCollection();
-var itemsView = new ItemsView({ collection : itemsCollection });
+var listsCollection = new ListsCollection();
+var listsView = new ListsView({ collection : listsCollection });
 
-itemsCollection.fetch();
+listsCollection.fetch();
 
-$('#app').html();
+$('#app').html(listsView.render().el);

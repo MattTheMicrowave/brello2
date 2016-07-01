@@ -10,7 +10,7 @@ var ListView = Backbone.View.extend({
 
   initialize: function() {
       this.model.fetch();
-      // this.listenTo(this.model, 'sync', this.render);
+      this.listenTo(this.model, 'changed', this.render);
   },
 
   render: function() {

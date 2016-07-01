@@ -7,7 +7,7 @@ var TagsView = Backbone.View.extend({
   render: function() {
     var _this = this;
 
-    this.collection.each(function(tag)) {
+    this.collection.each(function(tag) {
       var tagView = new TagView({ model: tag });
       _this.$el.append(tagView.render().el);
     });
@@ -16,3 +16,5 @@ var TagsView = Backbone.View.extend({
     return this;
   }
 });
+
+module.exports = TagsView;

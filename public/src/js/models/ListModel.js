@@ -3,7 +3,7 @@ var ItemsCollection = require('../collections/ItemsCollection');
 
 var ListModel = Backbone.Model.extend({
   urlRoot: '/lists',
-  idAttribute: '_id'
+  idAttribute: '_id',
 
 parse: function(list) {
   var items = list.items || [];

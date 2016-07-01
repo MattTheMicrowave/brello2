@@ -6,7 +6,7 @@ var ListsView = Backbone.View.extend({
   el: '<ul></ul>',
 
   initialize: function() {
-    this.listenTo(this.collection, 'sync', this.render);
+    this.listenTo(this.collection, 'update', this.render);
   },
 
   render: function() {

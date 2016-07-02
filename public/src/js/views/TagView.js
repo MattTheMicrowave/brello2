@@ -1,16 +1,15 @@
 var _ = require('underscore');
-
 var Backbone = require('backbone');
 
 var TagView = Backbone.View.extend({
-  el: '<li></li>',
+  el: '<span></span>',
 
-  template: _.template('<span><%= name %></span>'),
+  template: _.template('\
+  <small><%= model.get("label") %></small>\
+  '),
 
   render: function() {
-      var renderedTemplate = this.template({ name: this.model.get('name')});
-      this.$el.html(renderedTemplate);
-
+      this.$el.html(this.template( {model: this.model }));
       return this;
-  }
+    }
 });

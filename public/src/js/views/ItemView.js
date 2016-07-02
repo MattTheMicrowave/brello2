@@ -7,26 +7,23 @@ var ItemView = Backbone.View.extend({
   el: '<li></li>',
 
   template: _.template('\
-      <span><%= model.get("name")</span>\
+      <%= model.get("name") %>\
   '),
 
   initialize: function() {
       this.listenTo(this.model, 'change', this.render);
     },
 
-    render: function() {
-        var tagsView = new TagsView({ collection: this.model.get('tags') });
-        this.$el.html(this.template( {model: this.model }));
-        this.$el.find('span').html(tagsView.render().el);
-        return this;
-    }
-  // render: function()
-  //   this.$el.append(this.template({
-  //     name: this.model.get('name'),
-  //     tags: this.model.get('tags')
-  //   }));
-  //   return this;
-
+    // render: function() {
+    //     var tagsView = new TagsView({ collection: this.model.get('tags') });
+    //     this.$el.html(this.template( {model: this.model }));
+    //     this.$el.find('span').html(tagsView.render().el);
+    //     return this;
+    // }
+  render: function() {
+    this.$el.append(this.template({ model : this.model }));
+    return this;
+  }
 
 
 });

@@ -9,7 +9,7 @@ var TagView = Backbone.View.extend({
   '),
 
   render: function() {
-      this.$el.html(this.template( {model: this.model }));
+      this.$el.html(this.template( { model: this.model }));
       return this;
     }
 });

@@ -1,6 +1,6 @@
 var ListModel = require('../models/ListModel.js');
 var ItemModel = require('../models/ItemModel.js');
-var reveersePopulate = require('mongoose-reverse-populate');
+var reversePopulate = require('mongoose-reverse-populate');
 /**
  * ListController.js
  *
@@ -19,13 +19,18 @@ module.exports = {
                 });
             }
 
-            lists.forEach(function(list) {
-                var id = list._id;
-                ItemModel.find({ list : id }).populate('tags').exec(function(err, items) {
-                    list.items = items;
-                });
+            var opts = {
+              modelArray: lists,
+              storeWhere: 'items',
+              arrayPop: true,
+              mongooseModel: ItemModel,
+              idField: 'list',
+              populate: 'tags'
+            };
+
+            reversePopulate(opts, function(err, lists) {
+                return res.json(lists);
             });
-            return res.json(lists);
         });
     },
 

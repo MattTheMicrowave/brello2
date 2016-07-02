@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "develop": "nodemon ./bin/www",
-    "gulp":"gulp"
+    "gulp": "gulp"
   },
   "dependencies": {
     "backbone": "^1.3.3",
@@ -18,6 +18,7 @@
     "gulp": "^3.9.1",
     "jquery": "^3.0.0",
     "mongoose": "^4.5.2",
+    "mongoose-reverse-populate": "^1.1.0",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
     "underscore": "^1.8.3",

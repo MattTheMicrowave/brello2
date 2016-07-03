@@ -1,5 +1,7 @@
 var Backbone = require('backbone');
 var TagView = require('./TagView');
+var _ = require('underscore');
+
 
 var TagsView = Backbone.View.extend({
   el: '<span></span>',

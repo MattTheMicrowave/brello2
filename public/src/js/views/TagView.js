@@ -13,3 +13,5 @@ var TagView = Backbone.View.extend({
       return this;
     }
 });
+
+module.exports = TagView;

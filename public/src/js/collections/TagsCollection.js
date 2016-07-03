@@ -1,7 +1,7 @@
 var Backbone = require('backbone')
 var TagModel = require('../models/TagModel')
 
-var TagsCollection = Backbone.Model.extend({
+var TagsCollection = Backbone.Collection.extend({
   urlRoot: '/tags',
   model: TagModel
 

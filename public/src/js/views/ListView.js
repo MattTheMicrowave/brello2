@@ -6,7 +6,7 @@ var ListView = Backbone.View.extend({
   el: '<li></li>',
 
   template: _.template(
-    '<span><%= name %> </span>'),
+    '<span id="listview"><%= name %> </span>'),
 
   initialize: function() {
       this.model.fetch();

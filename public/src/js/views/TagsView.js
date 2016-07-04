@@ -4,7 +4,7 @@ var _ = require('underscore');
 
 
 var TagsView = Backbone.View.extend({
-  el: '<span></span>',
+  el: '<span class="tagsview"></span>',
 
   initialize: function() {
     this.listenTo(this.collection, 'update', this.render);

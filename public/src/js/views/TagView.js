@@ -2,7 +2,7 @@ var _ = require('underscore');
 var Backbone = require('backbone');
 
 var TagView = Backbone.View.extend({
-  el: '<span></span>',
+  el: '<span id="tagview"></span>',
 
   template: _.template('\
   <small style="background-color: <%=model.get("color")%>"><%= model.get("label") %></small>\

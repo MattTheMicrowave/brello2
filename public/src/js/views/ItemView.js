@@ -4,7 +4,7 @@ var TagsView = require('./TagsView');
 
 
 var ItemView = Backbone.View.extend({
-  el: '<li></li>',
+  el: '<li id="itemview"></li>',
 
   template: _.template('\
       <%= model.get("name") %><span></span>\

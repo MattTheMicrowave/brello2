@@ -6,3 +6,34 @@ body {
 a {
   color: #00B7FF;
 }
+
+/* the following line styles the lists side by side */
+/* and removes the bulletpoints */
+ul > li {
+
+  display: inline-block;
+  list-style: none;
+  padding: 24px;
+  border: 2px solid black;
+  margin: 24px 24px 0px 24px;
+  vertical-align:top;
+}
+
+#listview {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+#listsview {
+  text-align:center;
+}
+
+/*this centers the heading*/
+
+#heading {
+  text-align: center;
+}
+
+#itemsview {
+  text-align: left;
+}

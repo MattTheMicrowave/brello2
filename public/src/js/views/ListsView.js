@@ -3,7 +3,7 @@ var _ = require('underscore');
 var ListView = require('./ListView');
 
 var ListsView = Backbone.View.extend({
-  el: '<ul></ul>',
+  el: '<ul id="listsview"></ul>',
 
   initialize: function() {
     this.listenTo(this.collection, 'update', this.render);

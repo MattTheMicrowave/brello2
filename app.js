@@ -11,6 +11,11 @@ var lists = require('./routes/Lists');
 var items = require('./routes/Items');
 var tags = require('./routes/Tags');
 var mongoose = require('mongoose');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+var passport = require('./config/passport');
+var middleware = require('./routes/middleware');
+
 mongoose.connect('mongodb://localhost/brello2');
 var app = express();
 
@@ -31,6 +36,15 @@ app.use('/users', users);
 app.use('/items', items);
 app.use('/lists', lists);
 app.use('/tags', tags);
+
+app.use(session({
+  secret: 'foo',
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

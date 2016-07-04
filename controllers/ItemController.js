@@ -82,7 +82,7 @@ module.exports = {
             }
 
             Item.name =  req.body.name ? req.body.name : Item.name;			      Item.tags =  req.body.tags ? req.body.tags : Item.tags;
-            Item.list = req.body.list ? req.body.list : Item.tags;
+            Item.list = req.body.list ? req.body.list : Item.list;
             Item.save(function(err, Item){
                 if(err) {
                     return res.json(500, {

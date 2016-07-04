@@ -5,7 +5,7 @@ var TagView = Backbone.View.extend({
   el: '<span></span>',
 
   template: _.template('\
-  <small><%= model.get("label") %></small>\
+  <small style="background-color: <%=model.get("color")%>"><%= model.get("label") %></small>\
   '),
 
   render: function() {

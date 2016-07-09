@@ -2,12 +2,13 @@ var Backbone = require('backbone');
 var _ = require('underscore');
 var ItemsView = require('./ItemsView');
 var ItemModel = require('../models/ItemModel');
+var ItemsCollection = require('../Collections/ItemsCollection')
 
 var ListView = Backbone.View.extend({
   el: '<div>\
-          <form method="POST" action="/tweets">\
-		          <input id="tweet-input" type="text" name="text">\
-		          <input type="submit" value="Toss It" id="mysubmitbutton">\
+          <form method="POST" action="/items">\
+		          <input id="item-input" type="text" name="name">\
+		          <input type="submit" value="Add" id="mysubmitbutton">\
 		      </form>\
           <li></li>\
           </div>\
@@ -30,10 +31,13 @@ var ListView = Backbone.View.extend({
 		var _this = this;
 		var newItem = new ItemModel;
 
-		newItem.set({ text : $('#item-input').val() });
+
+		newItem.set({ name : $('#item-input').val() });
 		newItem.save(null, {
 		success: function () {
 		    _this.model.get("items").add(newItem);
+        this.collection.add(newitem);
+
 		}
 	  });
 

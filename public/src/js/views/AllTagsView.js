@@ -1,24 +1,23 @@
 var Backbone = require('backbone');
-var _ = require('underscore');
 var TagView = require('./TagView');
+var _ = require('underscore');
 
-var AllTagsView = Backbone.View.extend({
-  el: '<ul id="alltagsview"></ul>',
+
+var TagsView = Backbone.View.extend({
+  el: '<span class="tagsview"></span>',
 
   initialize: function() {
     this.listenTo(this.collection, 'update', this.render);
   },
 
-
   render: function() {
-        this.$el.html('');
-        var _this = this;
-        this.collection.each(function(tag){
-              var tagView = new TagView({model: tag});
-              _this.$el.append(tagView.render().el);
-              console.log('y');
-        });
-        return this;
+    var that = this;
+    this.$el.html('');
+    this.collection.each(function(tag) {
+      var tagView = new TagView({ model: tag });
+      that.$el.append(tagView.render().el);
+    });
+    return this;
   }
 });
 

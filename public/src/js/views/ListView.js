@@ -20,6 +20,7 @@ var ListView = Backbone.View.extend({
   initialize: function() {
       this.model.fetch();
       this.listenTo(this.model, 'changed', this.render);
+      this.listenTo(this.collection, 'update', this.render);
   },
 
   events: {
@@ -30,14 +31,12 @@ var ListView = Backbone.View.extend({
 		event.preventDefault();
 		var _this = this;
 		var newItem = new ItemModel;
+    var listId = _this.model.get("_id");
 
-
-		newItem.set({ name : $('#item-input').val() });
+		newItem.set({ name : $('#item-input').val(), list : listId });
 		newItem.save(null, {
 		success: function () {
 		    _this.model.get("items").add(newItem);
-        this.collection.add(newitem);
-
 		}
 	  });
 

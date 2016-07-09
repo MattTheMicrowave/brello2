@@ -9,6 +9,7 @@ var ListsView = Backbone.View.extend({
     this.listenTo(this.collection, 'update', this.render);
   },
 
+
   render: function() {
         this.$el.html('');
         var _this = this;

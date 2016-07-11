@@ -14,4 +14,3 @@ listsCollection.fetch();
 // tagsCollection.fetch();
 
 $('#app').html(listsView.render().el);
-$('#tags').html(tagsView.render().el);

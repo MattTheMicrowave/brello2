@@ -17,9 +17,9 @@ var ItemView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template({ model : this.model }));
-    var tagsView = new TagsView({ collection: this.model.get('tags') });
-
-    this.$el.find('span').html(tagsView.render().el);
+    // var tagsView = new TagsView({ collection: this.model.get('tags') });
+    // 
+    // this.$el.find('span').html(tagsView.render().el);
 
     return this;
   }

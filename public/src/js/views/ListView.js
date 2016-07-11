@@ -7,7 +7,7 @@ var ItemsCollection = require('../Collections/ItemsCollection')
 var ListView = Backbone.View.extend({
   el: '<div>\
           <form method="POST" action="/items">\
-		          <input id="item-input" type="text" name="name">\
+		          <input class="item-input" type="text" name="name">\
 		          <input type="submit" value="Add" id="mysubmitbutton">\
 		      </form>\
           <li></li>\
@@ -18,9 +18,7 @@ var ListView = Backbone.View.extend({
     '<span id="listview"><%= name %> </span>'),
 
   initialize: function() {
-      this.model.fetch();
       this.listenTo(this.model, 'changed', this.render);
-      this.listenTo(this.collection, 'update', this.render);
   },
 
   events: {
@@ -33,11 +31,11 @@ var ListView = Backbone.View.extend({
 		var newItem = new ItemModel;
     var listId = _this.model.get("_id");
 
-		newItem.set({ name : $('#item-input').val(), list : listId });
+		newItem.set({ name : this.$('.item-input').val(), list : listId });
 		newItem.save(null, {
-		success: function () {
-		    _this.model.get("items").add(newItem);
-		}
+  		success: function () {
+  		    _this.model.get("items").add(newItem);
+  		}
 	  });
 
 		$('#item-input').val("");

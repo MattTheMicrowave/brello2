@@ -7,6 +7,7 @@ var ListsView = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.collection, 'update', this.render);
+    
   },
 
 

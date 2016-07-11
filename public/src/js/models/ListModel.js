@@ -6,16 +6,16 @@ var ListModel = Backbone.Model.extend({
   urlRoot: '/lists',
   idAttribute: '_id',
 
-parse: function(list) {
-  var items = list.items || [];
-  list.items = new ItemsCollection(items);
+  parse: function(list) {
+    var items = list.items || [];
+    list.items = new ItemsCollection(items);
 
-  list.items.each(function(item) {
-  tags = item.get("tags") || [];
-  item.set('tags', new TagsCollection(tags));
-  });
+    list.items.each(function(item) {
+      tags = item.get("tags") || [];
+      item.set('tags', new TagsCollection(tags));
+    });
 
-  return list;
+    return list;
 
   }
 });

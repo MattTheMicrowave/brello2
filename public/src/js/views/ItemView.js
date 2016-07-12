@@ -7,8 +7,16 @@ var ItemView = Backbone.View.extend({
   el: '<li id="itemview"></li>',
 
   template: _.template('\
-      <%= model.get("name") %><span></span>\
+      <%= model.get("name") %>&nbsp;&nbsp;<span class="delete">delete</span>\
   '),
+
+  events: {
+		'click .delete' : 'removeItem'
+	},
+
+  removeItem: function() {
+    this.model.destroy();
+  },
 
   initialize: function() {
       this.listenTo(this.model, 'change', this.render);
@@ -18,7 +26,7 @@ var ItemView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template({ model : this.model }));
     // var tagsView = new TagsView({ collection: this.model.get('tags') });
-    // 
+    //
     // this.$el.find('span').html(tagsView.render().el);
 
     return this;

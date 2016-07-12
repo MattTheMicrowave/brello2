@@ -38,7 +38,7 @@ var ListView = Backbone.View.extend({
   		}
 	  });
 
-		$('#item-input').val("");
+		this.$('.item-input').val("");
 
 	},
 

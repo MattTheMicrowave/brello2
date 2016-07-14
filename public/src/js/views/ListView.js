@@ -6,7 +6,7 @@ var ItemsCollection = require('../Collections/ItemsCollection')
 
 var ListView = Backbone.View.extend({
   el: '<div>\
-          <form method="POST" action="/items">\
+          <form class="addItems">\
 		          <input class="item-input" type="text" name="name">\
 		          <input type="submit" value="Add" id="mysubmitbutton">\
 		      </form>\
@@ -22,10 +22,10 @@ var ListView = Backbone.View.extend({
   },
 
   events: {
-		'submit form' : 'addItem'
+		'submit addItems' : 'addItemFunction'
 	},
 
-	addItem: function (event) {
+	addItemFunction: function (event) {
 		event.preventDefault();
 		var _this = this;
 		var newItem = new ItemModel;

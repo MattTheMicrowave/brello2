@@ -7,12 +7,21 @@ var ItemView = Backbone.View.extend({
   el: '<li id="itemview"></li>',
 
   template: _.template('\
-      <%= model.get("name") %>&nbsp;&nbsp;<span class="delete">delete</span>\
+      <form>\
+      <input class="editItem" type="text" value= <%= model.get("name") %> >\
+      <input type="submit" value="Save"> </form> &nbsp;&nbsp;<span class="delete">delete</span>\
   '),
 
   events: {
-		'click .delete' : 'removeItem'
+		'click .delete' : 'removeItem',
+    'submit form' : 'saveItem'
 	},
+
+  saveItem: function() {
+    event.preventDefault();
+    this.model.set("name", this.$('.editItem').val());
+    this.model.save();
+  },
 
   removeItem: function() {
     this.model.destroy();

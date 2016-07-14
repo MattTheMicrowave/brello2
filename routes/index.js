@@ -6,14 +6,14 @@ var UserModel = require('../models/UserModel');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-      // if(!req.isAuthenticated()) {
-      //     res.redirect('/login');
-      // } else {
+      if(!req.isAuthenticated()) {
+          res.redirect('/login');
+      } else {
             res.render('index', { title: 'Coding Skills',
             //when authenticated, all of our `req` in our routes will have the authenticated user attached
-            // username: req.user.username
+            username: req.user.username
         });
-      // }
+      }
 });
 
 
@@ -44,19 +44,19 @@ router.get('/register', function(req, res, next) {
 router.post('/register', function(req, res, next) {
   UserModel.findOne({ username : req.body.username.toLowerCase() }, function (err, user) {
     if (user) { // if the username is taken
-      req.flash('error', 'The username has already been used');
+      // req.flash('error', 'The username has already been used');
       return res.redirect('/register');
     }
 
     if (req.body.password.length <= 5) {
-      req.flash('error', 'Password must be at least 6 characters');
+      // req.flash('error', 'Password must be at least 6 characters');
       return res.redirect('/register');
     }
 
     // the cost in processing the data. If hackers' computers get faster, we salt
     // it harder on a logarithmic scale, staying ahead
     var saltRounds = 10;
-    bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+    bcrypt.hash(req.body.password, null, null, function(err, hash) {
 
       user = new UserModel({
         username: req.body.username.toLowerCase(),
@@ -66,7 +66,7 @@ router.post('/register', function(req, res, next) {
       user.save(function (error, user) {
 
         if (error) {
-          req.flash('error', error.message);
+          // req.flash('error', error.message);
           res.redirect('/register');
         }
 

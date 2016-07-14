@@ -22,10 +22,10 @@ var ListView = Backbone.View.extend({
   },
 
   events: {
-		'submit addItems' : 'addItemFunction'
+		'submit .addItems' : 'addItem'
 	},
 
-	addItemFunction: function (event) {
+	addItem: function (event) {
 		event.preventDefault();
 		var _this = this;
 		var newItem = new ItemModel;

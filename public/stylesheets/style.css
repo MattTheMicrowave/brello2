@@ -2,7 +2,7 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: url('./img/coding-background.png');
-
+  background-repeat: no-repeat;
 }
 
 a {
@@ -19,6 +19,10 @@ a {
 }
 /* the following line styles the lists side by side */
 /* and removes the bulletpoints */
+.listsViewElement {
+  text-align: center;
+
+}
 .listsViewElement > form {
   padding: 25px;
 }

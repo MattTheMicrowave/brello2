@@ -9,7 +9,7 @@ var ItemView = Backbone.View.extend({
   template: _.template('\
       <form>\
       <input class="editItem" type="text" value= <%= model.get("name") %> >\
-      <input type="submit" value="Save"> </form> &nbsp;&nbsp;<span class="delete">delete</span>\
+      <input type="submit" value="EDIT"> </form> &nbsp;&nbsp;<span class="delete">DELETE</span>\
   '),
 
   events: {

@@ -1,15 +1,47 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  
+  background: url('./img/coding-background.png');
+
 }
 
 a {
   color: #00B7FF;
 }
 
+#heading {
+  color: white;
+
+}
+
+#app {
+  color: white;
+}
 /* the following line styles the lists side by side */
 /* and removes the bulletpoints */
+.listsViewElement > form {
+  padding: 25px;
+}
+
+li {
+padding: 10px;
+
+}
+
+.intro {
+  font-size: 20px;
+}
+
+.singlelist {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+
+}
+
+ul {
+  list-style: none;
+}
 ul > li {
 
   display: inline-block;

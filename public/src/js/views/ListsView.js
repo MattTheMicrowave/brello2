@@ -4,7 +4,7 @@ var ListView = require('./ListView');
 var ListModel = require('../models/ListModel');
 
 var ListsView = Backbone.View.extend({
-  el: '<div>\
+  el: '<div class="listsViewElement">\
   <form class="addLists">\
       <input class="newlist" type="text" name="name">\
       <input type="submit" value="Add List" class="mysubmitbutton">\

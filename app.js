@@ -16,7 +16,7 @@ var MongoStore = require('connect-mongo')(session);
 var passport = require('./config/passport');
 var middleware = require('./routes/middleware');
 
-mongoose.connect('mongodb://localhost/brello2');
+mongoose.connect('process.env.MONGODB_URI || mongodb://localhost/brello2');
 var app = express();
 
 // view engine setup

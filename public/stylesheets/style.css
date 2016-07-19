@@ -1,9 +1,17 @@
 body {
   padding: 50px;
+  padding-top: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: url('./img/coding-background-edit-3.png');
-  background-repeat: no-repeat;
+  background: url('./img/coding-background-crop.png');
+  background-repeat: ;
+  background-size: cover;
   text-shadow: 4px 4px 8px black;
+
+}
+
+div {
+color: royalblue;
+
 }
 
 a {
@@ -16,6 +24,7 @@ a {
 }
 .delete {
   font-weight: 600;
+  color: sandybrown;
 }
 #app {
   color: white;
@@ -24,7 +33,7 @@ a {
 /* and removes the bulletpoints */
 .listsViewElement {
   text-align: center;
-
+  margin-top: -35px;
 }
 .listsViewElement > form {
   padding: 25px;
@@ -77,4 +86,8 @@ ul > li {
 
 #itemsview {
   text-align: left;
+}
+
+form.addLists {
+  visibility: hidden;
 }
